@@ -1,5 +1,5 @@
-import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
+import hbs from "htmlbars-inline-precompile";
 
 export default Component.extend({
   // Passed properties
@@ -9,12 +9,14 @@ export default Component.extend({
   // Internal methods
   // ---------------------------------------------------------------------------
   submit(e) {
-    // Time to submit...
+    e.preventDefault();
+    this.onSubmit();
   },
 
   // Template
   // ---------------------------------------------------------------------------
-  // TODO: take out pre-wiring of submit button
+  tagName: "form",
+
   layout: hbs`
     {{yield (hash
       label=(component "ui-form/label")

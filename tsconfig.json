@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "noImplicitThis": false,
+    "noEmitOnError": false,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": ".",
+    "module": "es6",
+    "paths": {
+      "snowcat/*": [
+        "app/*",
+        "lib/ember-faker-pki/app/*"
+      ],
+      "npm:asn1js": [
+        "node_modules/asn1js"
+      ],
+      "npm:pkijs": [
+        "node_modules/pkijs"
+      ],
+      "*": [
+        "types/*"
+      ],
+      "ember-faker-pki": [
+        "lib/ember-faker-pki/addon"
+      ],
+      "ember-faker-pki/*": [
+        "lib/ember-faker-pki/addon/*"
+      ]
+    }
+  },
+  "include": [
+    "app",
+    "tests",
+    "types",
+    "mirage",
+    "lib/ember-faker-pki"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

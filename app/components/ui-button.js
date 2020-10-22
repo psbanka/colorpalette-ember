@@ -18,11 +18,9 @@ export default Component.extend({
   // Actions
   // ---------------------------------------------------------------------------
   click(e) {
-    console.log("ui-button CLICK");
     if (this.task) {
       this.task.perform();
     } else {
-      console.log("calling ui-button onClick method...");
       this.onClick();
     }
   },

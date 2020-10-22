@@ -1,5 +1,5 @@
-import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
+import hbs from "htmlbars-inline-precompile";
 
 export default Component.extend({
   // Passed properties
@@ -13,7 +13,7 @@ export default Component.extend({
       const card = { name: this.name, color: this.color, stars: 0 };
       this.addCallback(card);
       this.set("name", "");
-      this.set("color", "");
+      this.set("color", "#ffffff");
     },
     reset() {
       this.set("name", "");
@@ -23,7 +23,7 @@ export default Component.extend({
   // Internal properties
   // ---------------------------------------------------------------------------
   name: "",
-  color: "",
+  color: "#ffffff",
 
   layout: hbs`
     {{#ui-form onSubmit=(action "save") as |form|}}

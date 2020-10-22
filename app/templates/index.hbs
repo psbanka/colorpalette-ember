@@ -1,11 +1,13 @@
 <h1>Color Palette</h1>
 <NewColor @addCallback={{action "addColor"}} />
 <div class="card-container">
-  {{#each model as |card|}}
+  {{#each model as |card index|}}
     <ColorCard
       data-test={{hook "card" id=card.name}}
       @card={{card}}
+      @id={{index}}
       @votingCallback={{action "voteOnColor"}}
+      @deleteCallback={{action "deleteColor"}}
     />
   {{/each}}
 </div>

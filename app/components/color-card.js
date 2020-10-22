@@ -1,6 +1,6 @@
+import Component from "@ember/component";
 import { computed } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
-import Component from "@ember/component";
 
 /**
  * This function calculates the "brightness" of the given color.
@@ -18,9 +18,11 @@ function brightness(hexCode) {
   // the second two digits are for blue (i.e. "bb"), and the last two digits are for
   // green (i.e. "cc"). Then figure out the overall percent of each color
   // (hint: "00" is 0% and "ff" is 100%)
-  const percentRed = 0.5;
-  const percentBlue = 0.5;
-  const percentGreen = 0.5;
+  const colorMatch = new RegExp(/#(\w{2})(\w{2})(\w{2})$/);
+  const [_orig, redStr, greenStr, blueStr, _rest] = colorMatch.exec(hexCode);
+  const percentRed = parseInt(redStr, 16) / 255;
+  const percentBlue = parseInt(blueStr, 16) / 255;
+  const percentGreen = parseInt(greenStr, 16) / 255;
 
   // A bunch of color theory here: different colors don't contribute equally to brightness
   // NOTE: This code is correct; do not change.
@@ -55,11 +57,10 @@ export default Component.extend({
   // ---------------------------------------------------------------------------
   actions: {
     deleteCard() {
-      console.log("card wants to delete");
-      this.deleteCallback(this.card);
+      this.deleteCallback(this.id);
     },
     voteOnCard(value) {
-      this.votingCallback(this.card, value);
+      this.votingCallback(this.id, value);
     }
   },
 
@@ -68,6 +69,7 @@ export default Component.extend({
   deleteCallback: () => null,
   votingCallback: () => null,
   card: null,
+  id: 0,
 
   // Template
   // ---------------------------------------------------------------------------

@@ -6,18 +6,13 @@ export default Controller.extend({
   // ---------------------------------------------------------------------------
   actions: {
     addColor(value) {
-      console.log("addColor");
       this.model.pushObject(value);
     },
-    deleteColor(value) {
-      const index = this.model.reduce(
-        (memo, card, idx) => (memo = card.name === value.name ? idx : memo),
-        null
-      );
-      this.model.removeAt(index);
+    deleteColor(id) {
+      this.model.removeAt(id);
     },
-    voteOnColor(value, vote) {
-      set(this.model, "0.stars", vote);
+    voteOnColor(id, vote) {
+      set(this.model, `${id}.stars`, vote);
     }
   }
 });

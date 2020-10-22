@@ -16,4 +16,13 @@
     flex-direction: column;
     padding: 10px;
   }
+
+  &__colorField {
+    display: flex;
+
+    input {
+      margin-top: 12px;
+      margin-left: 17px;
+    }
+  }
 }
