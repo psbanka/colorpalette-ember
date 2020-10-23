@@ -1,6 +1,6 @@
 import Component from "@ember/component";
 
-export default Component.extend({
-  tagName: "label",
-  classNames: ['ui-form-label']
-});
+export default class UiFormLabel extends Component {
+  tagName = "label"
+  classNames = ['ui-form-label']
+}

@@ -1,18 +1,22 @@
-import Controller from "@ember/controller";
-import { set } from "@ember/object";
+import { action, set } from "@ember/object";
 
-export default Controller.extend({
+import Controller from "@ember/controller";
+
+export default class IndexController extends Controller {
   // Actions
   // ---------------------------------------------------------------------------
-  actions: {
-    addColor(value) {
-      this.model.pushObject(value);
-    },
-    deleteColor(id) {
-      this.model.removeAt(id);
-    },
-    voteOnColor(id, vote) {
-      set(this.model, `${id}.stars`, vote);
-    }
+  @action
+  addColor(value) {
+    this.model.pushObject(value);
   }
-});
+
+  @action
+  deleteColor(id) {
+    this.model.removeAt(id);
+  }
+
+  @action
+  voteOnColor(id, vote) {
+    set(this.model, `${id}.stars`, vote);
+  }
+}

@@ -1,35 +1,37 @@
 import Component from "@ember/component";
+import { action } from '@ember/object'
 import hbs from "htmlbars-inline-precompile";
 
-export default Component.extend({
+export default class NewColor extends Component {
   // Passed properties
   // ---------------------------------------------------------------------------
-  addCallback: () => null,
+  addCallback = () => null
 
   // Actions
   // ---------------------------------------------------------------------------
-  actions: {
-    save() {
-      const card = { name: this.name, color: this.color, stars: 0 };
-      this.addCallback(card);
-      this.set("name", "");
-      this.set("color", "#ffffff");
-    },
-    reset() {
-      this.set("name", "");
-    }
-  },
+  @action
+  save() {
+    const card = { name: this.name, color: this.color, stars: 0 };
+    this.addCallback(card);
+    this.set("name", "");
+    this.set("color", "#ffffff");
+  }
+
+  @action
+  reset() {
+    this.set("name", "");
+  }
 
   // Internal properties
   // ---------------------------------------------------------------------------
-  name: "",
-  color: "#ffffff",
+  name = ""
+  color = "#ffffff"
 
   // Template
   // ---------------------------------------------------------------------------
-  classNames: ['new-color'],
+  classNames = ['new-color']
 
-  layout: hbs`
+  layout = hbs`
     {{#ui-form onSubmit=(action "save") as |form|}}
       <section>
         {{#form.label}}Color name:{{/form.label}}
@@ -47,4 +49,4 @@ export default Component.extend({
       </section>
     {{/ui-form}}
   `
-});
+}
