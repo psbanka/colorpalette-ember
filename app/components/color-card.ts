@@ -3,11 +3,6 @@ import { action, computed } from "@ember/object";
 import Component from "@ember/component";
 import hbs from "htmlbars-inline-precompile";
 
-interface Card {
-  color: string
-  id: string
-}
-
 /**
  * This function calculates the "brightness" of the given color.
  * @param {String} hexCode - a hexcode value of the color (e.g. "#ff0000",

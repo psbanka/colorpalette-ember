@@ -5,13 +5,13 @@ import hbs from "htmlbars-inline-precompile";
 export default class NewColor extends Component {
   // Passed properties
   // ---------------------------------------------------------------------------
-  addCallback = () => null
+  addCallback!: (card: Card) => null
 
   // Actions
   // ---------------------------------------------------------------------------
   @action
   save() {
-    const card = { name: this.name, color: this.color, stars: 0 };
+    const card: Card = { name: this.name, color: this.color, stars: 0 };
     this.addCallback(card);
     this.set("name", "");
     this.set("color", "#ffffff");
