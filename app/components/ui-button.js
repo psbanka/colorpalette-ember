@@ -1,19 +1,19 @@
-// import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 import { computed } from "@ember/object";
 
 const DEFAULT_BLUE = "#147fbd";
 
-export default Component.extend({
+export default class UiButton extends Component {
   // Computed properties
   // ---------------------------------------------------------------------------
-  style: computed("backgroundColor", "color", function() {
+  @computed("backgroundColor", "color")
+  get style() {
     return `background-color: ${this.backgroundColor}; color: ${this.color};`;
-  }),
+  }
 
   // Callbacks
   // ---------------------------------------------------------------------------
-  onClick: () => null,
+  onClick = () => null
 
   // Actions
   // ---------------------------------------------------------------------------
@@ -23,21 +23,21 @@ export default Component.extend({
     } else {
       this.onClick();
     }
-  },
+  }
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  backgroundColor: DEFAULT_BLUE,
-  color: "#fff",
-  type: "button",
+  backgroundColor = DEFAULT_BLUE
+  color = "#fff"
+  type = "button"
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  task: null,
+  task = null
 
   // Template
   // ---------------------------------------------------------------------------
-  tagName: "button",
-  attributeBindings: ["style", "type"],
-  classNames: ['ui-button']
-});
+  tagName = "button"
+  attributeBindings = ["style", "type"]
+  classNames = ['ui-button']
+}
