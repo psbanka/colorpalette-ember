@@ -22,6 +22,11 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@types/ember": "^3.16.1",
+    "@types/ember-qunit": "^3.4.12",
+    "@types/ember-resolver": "^5.0.10",
+    "@types/ember__test-helpers": "^1.7.3",
+    "@types/qunit": "^2.9.5",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
@@ -35,6 +40,8 @@
     "ember-cli-sass": "^10.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.1",
+    "ember-cli-typescript": "^4.0.0",
+    "ember-cli-typescript-blueprints": "^3.0.0",
     "ember-export-application-global": "^2.0.1",
     "ember-hook": "^1.4.2",
     "ember-load-initializers": "^2.1.1",
@@ -56,9 +63,13 @@
     "prettier": "^2.1.2",
     "qunit-dom": "^1.5.0",
     "sass": "^1.27.0",
-    "stylelint": "^13.7.2"
+    "stylelint": "^13.7.2",
+    "typescript": "^4.0.3"
   },
   "engines": {
     "node": "10.* || >= 12"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.2"
   }
 }

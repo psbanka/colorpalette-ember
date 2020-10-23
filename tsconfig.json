@@ -1,47 +1,40 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2020",
+    "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noEmitOnError": false,
     "noEmit": true,
-    "noUnusedLocals": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": ".",
     "module": "es6",
+    "experimentalDecorators": true,
     "paths": {
-      "snowcat/*": [
-        "app/*",
-        "lib/ember-faker-pki/app/*"
+      "ember-colorpalette/tests/*": [
+        "tests/*"
       ],
-      "npm:asn1js": [
-        "node_modules/asn1js"
-      ],
-      "npm:pkijs": [
-        "node_modules/pkijs"
+      "ember-colorpalette/*": [
+        "app/*"
       ],
       "*": [
         "types/*"
-      ],
-      "ember-faker-pki": [
-        "lib/ember-faker-pki/addon"
-      ],
-      "ember-faker-pki/*": [
-        "lib/ember-faker-pki/addon/*"
       ]
     }
   },
   "include": [
-    "app",
-    "tests",
-    "types",
-    "mirage",
-    "lib/ember-faker-pki"
-  ],
-  "exclude": [
-    "node_modules"
+    "app/**/*",
+    "tests/**/*",
+    "types/**/*"
   ]
 }
