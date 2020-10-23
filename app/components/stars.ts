@@ -6,7 +6,7 @@ export default class Stars extends Component {
   // Actions
   // ---------------------------------------------------------------------------
   @action
-  vote(id) {
+  vote(id: number) {
     this.votingCallback(id);
   }
 
@@ -14,7 +14,7 @@ export default class Stars extends Component {
   // ---------------------------------------------------------------------------
   name!: string
   stars!: number
-  votingCallback!: (id: string) => void
+  votingCallback!: (id: number) => void
 
   layout = hbs`
     <button {{action "vote" 1}} data-test={{hook "vote" name=name id=1}}>⭐</button>

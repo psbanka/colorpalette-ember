@@ -12,7 +12,7 @@ import hbs from "htmlbars-inline-precompile";
  *  this function is aware, however, that "pure green" (i.e. "#00ff00") is brighter than
  *  "pure blue" (i.e. "#0000ff").
  */
-function brightness(hexCode) {
+function brightness(hexCode: string) {
   // FIXME: parse color into three variables in order to find percent of each channel
   // --------------------------------------------------------------------------------
   // In a given color code (#aabbcc), the first two "digits" are for red (i.e. "aa"),
@@ -72,7 +72,7 @@ export default class ColorCard extends Component {
   }
 
   @action
-  voteOnCard(value) {
+  voteOnCard(value: number) {
     this.votingCallback(this.id, value);
   }
 

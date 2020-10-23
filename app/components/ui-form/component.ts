@@ -8,7 +8,7 @@ export default class UiForm extends Component {
 
   // Internal methods
   // ---------------------------------------------------------------------------
-  submit(e) {
+  submit(e: Event) {
     e.preventDefault();
     this.onSubmit();
   }
