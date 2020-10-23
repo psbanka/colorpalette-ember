@@ -3,6 +3,11 @@ import { action, computed } from "@ember/object";
 import Component from "@ember/component";
 import hbs from "htmlbars-inline-precompile";
 
+interface Card {
+  color: string
+  id: string
+}
+
 /**
  * This function calculates the "brightness" of the given color.
  * @param {String} hexCode - a hexcode value of the color (e.g. "#ff0000",
@@ -20,7 +25,14 @@ function brightness(hexCode) {
   // green (i.e. "cc"). Then figure out the overall percent of each color
   // (hint: "00" is 0% and "ff" is 100%)
   const colorMatch = new RegExp(/#(\w{2})(\w{2})(\w{2})$/);
-  const [_orig, redStr, greenStr, blueStr, _rest] = colorMatch.exec(hexCode);
+  const match = colorMatch.exec(hexCode);
+  if (match == null) {
+    return 0
+  }
+
+  const redStr = match[1]
+  const greenStr = match[2]
+  const blueStr = match[3]
   const percentRed = parseInt(redStr, 16) / 255;
   const percentBlue = parseInt(blueStr, 16) / 255;
   const percentGreen = parseInt(greenStr, 16) / 255;
@@ -71,10 +83,10 @@ export default class ColorCard extends Component {
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  deleteCallback = () => null
-  votingCallback = () => null
-  card = null
-  id = 0
+  deleteCallback!: (id: string) => null
+  votingCallback!: (id: string, value: number) => null
+  card!: Card
+  id!: string
 
   // Template
   // ---------------------------------------------------------------------------
