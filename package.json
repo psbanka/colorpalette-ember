@@ -10,6 +10,9 @@
     "doc": "doc",
     "test": "tests"
   },
+  "ember": {
+    "release": "octane"
+  },
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*",
