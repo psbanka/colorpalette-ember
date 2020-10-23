@@ -3,6 +3,10 @@ import { computed } from "@ember/object";
 
 const DEFAULT_BLUE = "#147fbd";
 
+interface Task {
+  perform: () => void
+}
+
 export default class UiButton extends Component {
   // Computed properties
   // ---------------------------------------------------------------------------
@@ -17,7 +21,7 @@ export default class UiButton extends Component {
 
   // Actions
   // ---------------------------------------------------------------------------
-  click(e) {
+  click() {
     if (this.task) {
       this.task.perform();
     } else {
@@ -30,10 +34,7 @@ export default class UiButton extends Component {
   backgroundColor = DEFAULT_BLUE
   color = "#fff"
   type = "button"
-
-  // Passed properties
-  // ---------------------------------------------------------------------------
-  task = null
+  task!: Task
 
   // Template
   // ---------------------------------------------------------------------------
