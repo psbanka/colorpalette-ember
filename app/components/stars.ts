@@ -12,9 +12,9 @@ export default class Stars extends Component {
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  name = ""
-  stars = '1'
-  votingCallback = () => undefined
+  name!: string
+  stars!: number
+  votingCallback!: (id: string) => void
 
   layout = hbs`
     <button {{action "vote" 1}} data-test={{hook "vote" name=name id=1}}>⭐</button>
