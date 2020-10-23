@@ -74,16 +74,18 @@ export default Component.extend({
   // Template
   // ---------------------------------------------------------------------------
   attributeBindings: ["style"],
+  classNames: ['color-card'],
+
   layout: hbs`
-    <section class="{{styleNamespace}}__main">
+    <section>
       <h1>name: {{card.name}}</h1>
-      <section class="{{styleNamespace}}__colorField">
+      <section class="color-card__colorField">
         <p data-test={{hook "color-value" id=card.name}}>color: {{card.color}}</p>
         {{input hook=(hook "change-color" id=card.name) value=card.color type="color"}}
       </section>
       <Stars @name={{card.name}} @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
     </section>
-    <section class="{{styleNamespace}}__actions">
+    <section class="color-card__actions">
       <UiButton
         data-test={{hook "delete-color" id=card.name}}
         @backgroundColor={{buttonBackgroundColor}}

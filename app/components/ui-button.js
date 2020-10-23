@@ -38,5 +38,6 @@ export default Component.extend({
   // Template
   // ---------------------------------------------------------------------------
   tagName: "button",
-  attributeBindings: ["style", "type"]
+  attributeBindings: ["style", "type"],
+  classNames: ['ui-button']
 });

@@ -25,6 +25,10 @@ export default Component.extend({
   name: "",
   color: "#ffffff",
 
+  // Template
+  // ---------------------------------------------------------------------------
+  classNames: ['new-color'],
+
   layout: hbs`
     {{#ui-form onSubmit=(action "save") as |form|}}
       <section>
