@@ -1,5 +1,6 @@
 import Component from "@ember/component";
 import hbs from "htmlbars-inline-precompile";
+import { v4 } from "uuid";
 
 export default Component.extend({
   // Passed properties
@@ -10,7 +11,7 @@ export default Component.extend({
   // ---------------------------------------------------------------------------
   actions: {
     save() {
-      const card = { name: this.name, color: this.color, stars: 0 };
+      const card = { id: v4(), name: this.name, color: this.color, stars: 0 };
       this.addCallback(card);
       this.set("name", "");
       this.set("color", "#ffffff");

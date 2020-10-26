@@ -63,6 +63,7 @@
     "ember-hook": "^1.4.2",
     "ember-welcome-page": "^3.2.0",
     "luum": "0.0.2",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "uuid": "^8.3.1"
   }
 }
