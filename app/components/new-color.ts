@@ -1,3 +1,4 @@
+import { Color } from "ember-colorpalette/routes/index";
 import Component from "@ember/component";
 import { action } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
@@ -6,7 +7,7 @@ import { v4 } from "uuid";
 export default class NewColor extends Component {
   // Passed properties
   // ---------------------------------------------------------------------------
-  addCallback = () => null;
+  addCallback: (color: Color) => void;
 
   // Actions
   // ---------------------------------------------------------------------------
