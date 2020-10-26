@@ -1,13 +1,6 @@
 import Route from "@ember/routing/route";
 import { v4 } from "uuid";
 
-export interface Color {
-  id: string;
-  color: string;
-  name: string;
-  stars: number;
-}
-
 export default class IndexRoute extends Route {
   model() {
     const color: Color = {

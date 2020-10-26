@@ -1,4 +1,3 @@
-import { Color } from "ember-colorpalette/routes/index";
 import Component from "@ember/component";
 import { action } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
