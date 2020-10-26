@@ -1,51 +1,55 @@
+import { action, computed } from "@ember/object";
 import { hexToChannels, lumFromChannels } from "luum";
 
 import Component from "@ember/component";
-import { computed } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
 
 function brightness(hexCode) {
   return lumFromChannels(hexToChannels(hexCode));
 }
 
-export default Component.extend({
+export default class ColorCard extends Component {
   // Computed properties
   // ---------------------------------------------------------------------------
-  style: computed("card.color", function() {
+  @computed("card.color")
+  get style() {
     const color = brightness(this.card.color) > 0.5 ? "black" : "white";
     return `background-color: ${this.card.color}; color: ${color};`;
-  }),
+  }
 
-  buttonColor: computed("card.color", function() {
+  @computed("card.color")
+  get buttonColor() {
     return brightness(this.card.color) > 0.5 ? "white" : "black";
-  }),
+  }
 
-  buttonBackgroundColor: computed("card.color", function() {
+  @computed("card.color")
+  get buttonBackgroundColor() {
     return brightness(this.card.color) > 0.5 ? "#000000aa" : "#ffffffaa";
-  }),
+  }
 
   // Actions
   // ---------------------------------------------------------------------------
-  actions: {
-    deleteCard() {
-      this.deleteCallback(this.id);
-    },
-    voteOnCard(value) {
-      this.votingCallback(this.id, value);
-    }
-  },
+  @action
+  deleteCard() {
+    this.deleteCallback(this.id);
+  }
+
+  @action
+  voteOnCard(value) {
+    this.votingCallback(this.id, value);
+  }
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  deleteCallback: () => null,
-  votingCallback: () => null,
-  card: null,
-  id: 0,
+  deleteCallback = () => null;
+  votingCallback = () => null;
+  card = null;
+  id = 0;
 
   // Template
   // ---------------------------------------------------------------------------
-  attributeBindings: ["style"],
-  layout: hbs`
+  attributeBindings = ["style"];
+  layout = hbs`
     <section class="{{styleNamespace}}__main">
       <h1>name: {{card.name}}</h1>
       <section class="{{styleNamespace}}__colorField">
@@ -64,5 +68,5 @@ export default Component.extend({
         Delete
       </UiButton>
     </section>
-  `
-});
+  `;
+}

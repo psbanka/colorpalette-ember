@@ -1,27 +1,27 @@
 import Component from "@ember/component";
+import { action } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
 
-export default Component.extend({
+export default class Stars extends Component {
   // Actions
   // ---------------------------------------------------------------------------
-  actions: {
-    vote(id) {
-      this.votingCallback(id);
-    }
-  },
+  @action
+  vote(id) {
+    this.votingCallback(id);
+  }
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  name: "",
-  stars: 0,
-  votingCallback: () => undefined,
+  name = "";
+  stars = 0;
+  votingCallback = () => undefined;
 
-  layout: hbs`
+  layout = hbs`
     <button {{action "vote" 1}} data-test={{hook "vote" name=name id=1}}>⭐</button>
     <button {{action "vote" 2}} data-test={{hook "vote" name=name id=2}}>⭐</button>
     <button {{action "vote" 3}} data-test={{hook "vote" name=name id=3}}>⭐</button>
     <button {{action "vote" 4}} data-test={{hook "vote" name=name id=4}}>⭐</button>
     <button {{action "vote" 5}} data-test={{hook "vote" name=name id=0}}>⭐</button>
     <p>stars: {{this.stars}}</p>
-  `
-});
+  `;
+}
