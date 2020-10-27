@@ -27,6 +27,7 @@
       "ember-colorpalette/*": [
         "app/*"
       ],
+      "luum/*": ["types/lib/luum"],
       "*": [
         "types/*"
       ]
