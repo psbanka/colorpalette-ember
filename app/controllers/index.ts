@@ -6,17 +6,17 @@ export default class IndexController extends Controller {
   // Actions
   // ---------------------------------------------------------------------------
   @action
-  addColor(value) {
+  addColor(value: Color) {
     this.model.pushObject(value);
   }
 
   @action
-  deleteColor(id) {
+  deleteColor(id: number) {
     this.model.removeAt(id);
   }
 
   @action
-  voteOnColor(id, vote) {
+  voteOnColor(id: string, vote: number) {
     set(this.model, `${id}.stars`, vote);
   }
 }

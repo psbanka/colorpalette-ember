@@ -4,7 +4,7 @@ import { hexToChannels, lumFromChannels } from "luum";
 import Component from "@ember/component";
 import hbs from "htmlbars-inline-precompile";
 
-function brightness(hexCode) {
+function brightness(hexCode: string) {
   return lumFromChannels(hexToChannels(hexCode));
 }
 
@@ -35,7 +35,7 @@ export default class ColorCard extends Component {
   }
 
   @action
-  voteOnCard(value) {
+  voteOnCard(value: number) {
     this.votingCallback(this.id, value);
   }
 

@@ -38,6 +38,6 @@ export default class UiButton extends Component {
 
   // Template
   // ---------------------------------------------------------------------------
-  tagName: "button";
-  attributeBindings: ["style", "type"];
+  tagName = "button";
+  attributeBindings = ["style", "type"];
 }
