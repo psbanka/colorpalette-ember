@@ -4,39 +4,40 @@ import { computed } from "@ember/object";
 
 const DEFAULT_BLUE = "#147fbd";
 
-export default Component.extend({
+export default class UiButton extends Component {
   // Computed properties
   // ---------------------------------------------------------------------------
-  style: computed("backgroundColor", "color", function() {
+  @computed("backgroundColor", "color")
+  style() {
     return `background-color: ${this.backgroundColor}; color: ${this.color};`;
-  }),
+  }
 
   // Callbacks
   // ---------------------------------------------------------------------------
-  onClick: () => null,
+  onClick: () => null;
 
   // Actions
   // ---------------------------------------------------------------------------
-  click(e) {
+  click() {
     if (this.task) {
       this.task.perform();
     } else {
       this.onClick();
     }
-  },
+  }
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  backgroundColor: DEFAULT_BLUE,
-  color: "#fff",
-  type: "button",
+  backgroundColor = DEFAULT_BLUE;
+  color = "#fff";
+  type = "button";
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  task: null,
+  task: Task;
 
   // Template
   // ---------------------------------------------------------------------------
-  tagName: "button",
-  attributeBindings: ["style", "type"]
-});
+  tagName: "button";
+  attributeBindings: ["style", "type"];
+}

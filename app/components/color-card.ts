@@ -41,10 +41,10 @@ export default class ColorCard extends Component {
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  deleteCallback = () => null;
-  votingCallback = () => null;
-  card = null;
-  id = 0;
+  deleteCallback: (id: string) => null;
+  votingCallback: (id: string, value: number) => null;
+  card: Color;
+  id: string;
 
   // Template
   // ---------------------------------------------------------------------------

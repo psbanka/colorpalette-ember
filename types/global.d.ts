@@ -11,3 +11,7 @@ declare interface Color {
   name: string;
   stars: number;
 }
+
+declare interface Task {
+  perform: () => Promise<void>;
+}
